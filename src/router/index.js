@@ -46,7 +46,7 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/首页',
+    // redirect: '/首页',
     children: [{
       path: 'home',
       name: '首页',
@@ -88,7 +88,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        name: '商城管理',
+        name: '微信设置',
         component: () => import('@/views/form/index'),
         meta: { title: '微信设置', icon: 'form' }
       }

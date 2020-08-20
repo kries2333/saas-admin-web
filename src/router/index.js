@@ -46,7 +46,7 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    // redirect: '/首页',
+    redirect: '/home',
     children: [{
       path: 'home',
       name: '首页',
@@ -59,7 +59,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/shop_manage',
     name: '商城管理',
-    meta: { title: '商城管理', icon: 'el-icon-s-help' },
+    meta: { title: '商城管理', icon: 'tree' },
     children: [
       {
         path: 'mendian_manage',
@@ -78,6 +78,12 @@ export const constantRoutes = [
         name: '商品管理',
         component: () => import('@/views/shop_manage/goods_manage/index'),
         meta: { title: '商品管理', icon: 'tree' }
+      },
+      {
+        path: 'goods_add',
+        name: '商品添加',
+        component: () => import('@/views/shop_manage/goods_manage/goods_add'),
+        meta: { title: '商品添加', icon: 'tree' }
       }
     ]
   },
@@ -88,7 +94,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        name: '微信设置',
+        name: '商城管理',
         component: () => import('@/views/form/index'),
         meta: { title: '微信设置', icon: 'form' }
       }

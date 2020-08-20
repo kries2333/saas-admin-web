@@ -16,11 +16,12 @@
       <el-form-item label="商品图片">
         <el-button class="el-button el-button--warning el-button--mini" @click="showImagesDlg">上传本地图片</el-button>
       </el-form-item>
+      <el-button @click="onCancel">返回</el-button>
+      <el-button @click="onSubmit">确定</el-button>
     </el-form>
     <el-dialog :modal="true" :visible.sync="dialogVisible" width="50%">
       <el-form ref="imagesForm">
         <el-upload
-          :file-list="fileList"
           :action="uploadAction"
           list-type="picture-card"
           ref="upload"
@@ -49,6 +50,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      imagesDialogVisible: false,
       form: {
         shop_id: '',
         goods_type: '',
@@ -64,6 +66,33 @@ export default {
   methods: {
     showImagesDlg() {
       this.dialogVisible = true
+    },
+    uploadAction() {
+
+    },
+    dialogImageUrl() {
+
+    },
+    submitUpload() {
+
+    },
+    handlePictureCardPreview() {
+      console.log('handlePictureCardPreview')
+    },
+    handleRemovePicture() {
+      console.log('handleRemovePicture')
+    },
+    handleExceedPicture() {
+      console.log('handleExceedPicture')
+    },
+    handlePictureChange(file) {
+      console.log('handlePictureChange')
+      this.tableData.push({
+          title: '',
+          comment: '',
+          image_url: file.url,
+          file_raw: file.raw,
+        })
     },
     onSubmit() {
       this.$message('submit!')
